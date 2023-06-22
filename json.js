@@ -4,10 +4,24 @@ const host = 'localhost';
 const port = 8000;
 
 
+
+
 const requestListener = function (req, res) {
+
     res.setHeader("Content-Type", "application/json");
     res.writeHead(200);
-    res.end(`{"message": "This is a JSON response"}`);
+
+    fetch("https://www.affirmations.dev/")
+      .then((res) => res.json())
+      .then((json) => {
+        console.log("coucou", json);
+        let data = JSON.stringify(json);
+        // return data;
+         res.end(data);
+        });
+
+    
+   
 };
 // The res.setHeader() method adds an HTTP header to the response. 
 // HTTP headers are additional information that can be attached to a request or a response.
@@ -16,7 +30,9 @@ const requestListener = function (req, res) {
 
 
 
+
 const server = http.createServer(requestListener);
 server.listen(port, host, () => {
     console.log(`Server is running on http://${host}:${port}`);
 });
+

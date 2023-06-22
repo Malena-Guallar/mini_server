@@ -61,3 +61,4 @@ fs.readFile(__dirname + "/index.html")
 // We then start the server with the listen() method. 
 // The key thing is that the file is loaded before the server is run. 
 // This way, the requestListener() function will be sure to return an HTML page, as indexFile is no longer an empty variable.
+
