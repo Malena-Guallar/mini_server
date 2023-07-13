@@ -36,7 +36,7 @@ const getRequest = async (req, response) => {
 };
 
 
-const postRequest = async (req, res) => {
+const postRequest = async (req, response) => {
 
     const quote = prompt("Type here your quote : ");
     console.log(quote);
@@ -52,8 +52,6 @@ const postRequest = async (req, res) => {
             response.setHeader("Content-Type", "application/json")
             response.end(data);
         })
-
-
 };
 
       
